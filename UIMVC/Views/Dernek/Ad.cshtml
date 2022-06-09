@@ -4,4 +4,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-  
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">Yeni Dernek Kayıt</h3>
+    </div>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Ad" class="control-label">Dernek Adı</label>
+                    <input asp-for="Ad" class="form-control" />
+                    <span asp-validation-for="Ad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Şehir</label>
+                    @Html.DropDownListFor(x => x.SehirId, (List<SelectListItem>)ViewBag.sehirler, "Lütfen bir şehir seçiniz.", new { @class = "form-control etc" })
+                </div>
+                <div class="form-group">
+                    <label>Başkonsolosluk Bölgesi</label>
+                    @Html.DropDownListFor(x => x.BkBolgesId, (List<SelectListItem>)ViewBag.bkBolgeler, "Lütfen bir bölge seçiniz.", new { @class = "form-control etc" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Kuruluş Kanunu Seçiniz</label>
+                    @Html.DropDownListFor(x => x.KurulusKanunId, (List<SelectListItem>)ViewBag.kurulusKanuns, "Lütfen bir kanun seçiniz.", new { @class = "form-control etc" })
+                </div>
+                <div class="form-group">
+                    <label>CRCM Üyelik Form Durumu Seçiniz</label>
+                    @Html.DropDownListFor(x => x.CrcmUyelikFormDurumId, (List<SelectListItem>)ViewBag.crcmKurulusUyelikDurum, "Lütfen bir form durumu seçiniz.", new { @class = "form-control etc" })
+                </div>
+                <div class="form-group">
+                    <label asp-for="BaslangicTarih" class="control-label">Dernek Kuruluş Tarihi</label>
+                    <input asp-for="BaslangicTarih" type="date" class="form-control" />
+                    <span asp-validation-for="BaslangicTarih" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+        </div>
+    </div>
+    }
+</div>
+<div class="card-footer">
+    <div>
+        <a asp-controller="Home" asp-action="Index">Dernek Listesine Geri Dön</a>
+    </div>
+</div>

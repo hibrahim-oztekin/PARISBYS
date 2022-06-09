@@ -2064,8 +2064,4 @@
     <ProjectReference Include="..\Business\Business.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\NewFolder\" />
-  </ItemGroup>
-
 </Project>
