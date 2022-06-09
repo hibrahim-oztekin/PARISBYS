@@ -12,7 +12,6 @@ namespace UIMVC.Controllers
 {
     public class BaseController : Controller
     {
-
         public void Notify(string message, string title,
             NotificationType notificationType = NotificationType.success)
         {
