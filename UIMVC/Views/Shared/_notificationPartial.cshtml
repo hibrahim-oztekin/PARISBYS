@@ -1,0 +1,29 @@
+﻿@{
+	<script>
+			var msg = @Html.Raw(TempData["Message"]!=null? TempData["Message"] : "undefined");
+
+			console.log(msg);
+
+			if (msg) {
+				if (msg.provider === "sweetAlert") {
+					//swal({
+					//	title: msg.title,
+					//	html:msg.message,
+					//	icon: msg.icon,
+
+					//});
+					Swal.fire({
+		  title: msg.title,
+		  icon: msg.icon,
+		  html:msg.message,
+		  showCloseButton: true,
+		  showCancelButton: true,
+		  focusConfirm: false,
+
+		});
+				} else {
+					toastr[msg.type](msg.message, msg.title);
+				}
+			}
+	</script>
+}a
